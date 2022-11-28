@@ -30,7 +30,7 @@ function fetchPokemon(id) {
 }
 
 function fetchPokemons(offset, limit) {
-  // spinner.style.display = "block";
+
   for (let i = offset; i <= offset + limit; i++) {
     fetchPokemon(i);
   }
@@ -67,13 +67,8 @@ function createPokemon(pokemon) {
   card.appendChild(number);
   card.appendChild(name);
 
-  // const cardBack = document.createElement("div");
-  // cardBack.classList.add("pokemon-block-back");
-
-  // cardBack.appendChild(progressBars(pokemon.stats));
-
   cardContainer.appendChild(card);
-  // cardContainer.appendChild(cardBack);
+  
   pokemonContainer.appendChild(flipCard);
 }
 

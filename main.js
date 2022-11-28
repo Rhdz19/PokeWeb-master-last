@@ -7,7 +7,6 @@ const type_list = document.querySelector(".type-list");
 const pokemon_measures = document.querySelector(".pokemon-measures");
 const pokemon_abilities = document.querySelector(".abilities-list")
 
-var id;
 
 const putValues = (pokemon) => {
   pokemon_name.innerHTML = `${pokemon.id} - ${pokemon.name}`;
@@ -23,10 +22,7 @@ const putValues = (pokemon) => {
   }M </span> <span> Weight - ${pokemon.weight / 10}Kg</span>`;
 };
 
-const url = new URL('/pokedex.html?id=' + id);
-const searchParams = url.searchParams;
 
-searchParams.get('id'); 
 
 fetch(`${API_URL}/pokemon/1`)
   .then((response) => response.json())
