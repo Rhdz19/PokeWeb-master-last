@@ -22,7 +22,9 @@ const putValues = (pokemon) => {
   }M </span> <span> Weight - ${pokemon.weight / 10}Kg</span>`;
 };
 
-
+let queryString = window.location.search;
+let urlParams = new URLSearchParams(queryString);
+let pokemon = urlParams.get("pokemon");
 
 fetch(`${API_URL}/pokemon/1`)
   .then((response) => response.json())
@@ -31,7 +33,5 @@ fetch(`${API_URL}/pokemon/1`)
 function printValue() {
   let pokemon = searchQuery.value;
   pokemon = pokemon.toLowerCase();
-  fetch(`${API_URL}/pokemon/${pokemon}`)
-    .then((response) => response.json())
-    .then(putValues);
+  window.Location.replace(`pokedex.html?pokemon=${pokemon}`)
 }

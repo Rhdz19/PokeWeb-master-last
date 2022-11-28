@@ -2,6 +2,10 @@ const pokemonContainer = document.querySelector(".pokemon-container");
 const spinner = document.querySelector("#spinner");
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
+const flipCard = document.querySelector("flip-card");
+const URL_Pokedex  = "/pokedex.html?pokemon="
+  
+
 
 let limit = 8;
 let offset = 1;
@@ -88,3 +92,9 @@ function removeChildNodes(parent) {
 }
 
 fetchPokemons(offset, limit);
+
+flipCard.addEventListener("click", () => {
+  window.location.href = URL_Pokedex + number;
+});
+
+
