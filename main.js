@@ -26,12 +26,15 @@ let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString);
 let pokemon = urlParams.get("pokemon");
 
-fetch(`${API_URL}/pokemon/1`)
+fetch(`${API_URL}/pokemon/${pokemon}`)
   .then((response) => response.json())
   .then(putValues);
 
 function printValue() {
   let pokemon = searchQuery.value;
   pokemon = pokemon.toLowerCase();
-  window.Location.replace(`pokedex.html?pokemon=${pokemon}`)
+  if(pokemon){
+    return window.location.replace(`pokedex.html?pokemon=${pokemon}`)
+  }
+  return alert("Busqueda Vacia")
 }

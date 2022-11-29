@@ -2,7 +2,7 @@ const pokemonContainer = document.querySelector(".pokemon-container");
 const spinner = document.querySelector("#spinner");
 const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
-const flipCard = document.querySelector("flip-card");
+const flipcards = document.querySelector(".image-container");
 const URL_Pokedex  = "/pokedex.html?pokemon="
   
 
@@ -61,6 +61,7 @@ function createPokemon(pokemon) {
   spriteContainer.appendChild(sprite);
 
   const number = document.createElement("p");
+  number.classList.add("pokemon-numero");
   number.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
   const name = document.createElement("p");
@@ -91,10 +92,23 @@ function removeChildNodes(parent) {
   }
 }
 
-fetchPokemons(offset, limit);
+fetchPokemons(offset, limit)
 
-flipCard.addEventListener("click", () => {
-  window.location.href = URL_Pokedex + number;
-});
+// flipCard.addEventListener("click", () => {
+//   console.log("click");
+//   // window.location.replace(URL_Pokedex + number)
+// });
+// flipCard.addEventListener("click", function(){ alert("Hello World!") });
 
+
+// let cards = document.querySelectorAll(".pokemon-container");
+
+// let number = document.querySelectorAll(".pokemon-numero");
+
+// cards.forEach((card,index) => {
+//   console.log(number);
+//   card.addEventListener("click", ()=>{
+//     console.log(`indice ${index}`);
+//   })
+// });
 
