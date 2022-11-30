@@ -39,8 +39,6 @@ const createPokemonCard = (pokemon) => {
     const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
     const id = pokemon.id.toString().padStart(3, '0')
 
-    const image = pokemon.sprites['front_default']
-
 
     const poke_types = pokemon.types.map(type => type.type.name)
     const type = main_types.find(type => poke_types.indexOf(type) > -1)
@@ -49,10 +47,10 @@ const createPokemonCard = (pokemon) => {
     pokemonEl.style.backgroundColor = color
 
     const pokemonInnerHTML = `
-    <div class="img-container">
+    <div class="img-container" onclick="window.location='pokedex.html?pokemon=${pokemon.id}';">
         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="">
     </div>
-    <div class="info">
+    <div class="info" onclick="window.location='pokedex.html?pokemon=${pokemon.id}';">
         <span class="number">#${id}</span>
         <h3 class="name">${name}</h3>
         <strong class="type">Type: <span>${type}</span> </strong>

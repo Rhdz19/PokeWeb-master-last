@@ -12,7 +12,16 @@
 
 body {
   color: rgba(var(--color-primary-rgb), 1);
+  background-image: url("../img/background.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  
+  background-attachment: fixed;
+  
+ 
 }
+
 
 a {
   color: var(--color-links);
