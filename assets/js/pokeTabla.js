@@ -1,114 +1,67 @@
-const pokemonContainer = document.querySelector(".pokemon-container");
-const spinner = document.querySelector("#spinner");
-const previous = document.querySelector("#previous");
-const next = document.querySelector("#next");
-const flipcards = document.querySelector(".image-container");
-const URL_Pokedex  = "/pokedex.html?pokemon="
-  
-
-
-let limit = 8;
-let offset = 1;
-
-previous.addEventListener("click", () => {
-  if (offset != 1) {
-    offset -= 9;
-    removeChildNodes(pokemonContainer);
-    fetchPokemons(offset, limit);
-  }
-});
-
-next.addEventListener("click", () => {
-  offset += 9;
-  removeChildNodes(pokemonContainer);
-  fetchPokemons(offset, limit);
-});
-
-function fetchPokemon(id) {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-    .then((res) => res.json())
-    .then((data) => {
-      createPokemon(data);
-      //spinner.style.display = "none";
-    });
+const poke_container = document.getElementById('poke-container')
+const pokemon_count = 905
+const colors = {
+    fire: '#FDDFDF',
+    grass: '#DEFDE0',
+	electric: '#FCF7DE',
+	water: '#DEF3FD',
+	ground: '#f4e7da',
+	rock: '#d5d5d4',
+	fairy: '#fceaff',
+	poison: '#98d7a5',
+	bug: '#f8d5a3',
+	dragon: '#97b3e6',
+	psychic: '#eaeda1',
+	flying: '#F5F5F5',
+	fighting: '#E6E0D4',
+	normal: '#F5F5F5'
 }
 
-function fetchPokemons(offset, limit) {
+const main_types = Object.keys(colors)
 
-  for (let i = offset; i <= offset + limit; i++) {
-    fetchPokemon(i);
-  }
+const fetchPokemons = async () => {
+    for(let i = 1; i <= pokemon_count; i++) {
+        await getPokemon(i)
+    }
 }
 
-function createPokemon(pokemon) {
-  const flipCard = document.createElement("div");
-  flipCard.classList.add("flip-card");
-
-  const cardContainer = document.createElement("div");
-  cardContainer.classList.add("card-container");
-
-  flipCard.appendChild(cardContainer);
-
-  const card = document.createElement("div");
-  card.classList.add("pokemon-block");
-
-  const spriteContainer = document.createElement("div");
-  spriteContainer.classList.add("img-container");
-
-  const sprite = document.createElement("img");
-  sprite.src = pokemon.sprites.front_default;
-
-  spriteContainer.appendChild(sprite);
-
-  const number = document.createElement("p");
-  number.classList.add("pokemon-numero");
-  number.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
-
-  const name = document.createElement("p");
-  name.classList.add("name");
-  name.textContent = pokemon.name;
-
-  card.appendChild(spriteContainer);
-  card.appendChild(number);
-  card.appendChild(name);
-
-  cardContainer.appendChild(card);
-  
-  pokemonContainer.appendChild(flipCard);
+const getPokemon = async (id) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const res = await fetch(url)
+    const data = await res.json()
+    createPokemonCard(data)
 }
 
-function progressBars(stats) {
-  const statsContainer = document.createElement("div");
-  statsContainer.classList.add("stats-container");
+const createPokemonCard = (pokemon) => {
+    const pokemonEl = document.createElement('div')
+    pokemonEl.classList.add('pokemon')
+
+    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
+    const id = pokemon.id.toString().padStart(3, '0')
+
+    const image = pokemon.sprites['front_default']
 
 
+    const poke_types = pokemon.types.map(type => type.type.name)
+    const type = main_types.find(type => poke_types.indexOf(type) > -1)
+    const color = colors[type]
 
-  return statsContainer;
+    pokemonEl.style.backgroundColor = color
+
+    const pokemonInnerHTML = `
+    <div class="img-container">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="">
+    </div>
+    <div class="info">
+        <span class="number">#${id}</span>
+        <h3 class="name">${name}</h3>
+        <strong class="type">Type: <span>${type}</span> </strong>
+    </div>
+    `
+
+    pokemonEl.innerHTML = pokemonInnerHTML
+
+    poke_container.appendChild(pokemonEl)
 }
 
-function removeChildNodes(parent) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
-}
-
-fetchPokemons(offset, limit)
-
-// flipCard.addEventListener("click", () => {
-//   console.log("click");
-//   // window.location.replace(URL_Pokedex + number)
-// });
-// flipCard.addEventListener("click", function(){ alert("Hello World!") });
-
-
-// let cards = document.querySelectorAll(".pokemon-container");
-
-// let number = document.querySelectorAll(".pokemon-numero");
-
-// cards.forEach((card,index) => {
-//   console.log(number);
-//   card.addEventListener("click", ()=>{
-//     console.log(`indice ${index}`);
-//   })
-// });
-
+fetchPokemons()

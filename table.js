@@ -24,18 +24,34 @@ const putValues = data => {
   };
 
 
+// function printValue() {
+//   let type = searchQuery.value;
+//   type = type.toLowerCase();
+  
+//   if(type){
+//     return fetch(`${API_URL}/type/${type}`)
+//       .then((response) => response.json())
+//       .then(putValues);
+//   }
+//   return alert("No se ingreso nada");
+// }
+
+let queryString = window.location.search;
+let urlParams = new URLSearchParams(queryString);
+let pokemon = urlParams.get("type");
+
+fetch(`${API_URL}/type/${pokemon}`)
+  .then((response) => response.json())
+  .then(putValues);
+
 function printValue() {
   let type = searchQuery.value;
   type = type.toLowerCase();
-  
+
   if(type){
-    return fetch(`${API_URL}/type/${type}`)
-      .then((response) => response.json())
-      .then(putValues);
+    return window.location.replace(`tabla.html?type=${type}`)
   }
-  return alert("No se ingreso nada");
+  return alert("Busqueda Vacia")
 }
 
-fetch(`${API_URL}/type/1`)
-  .then((response) => response.json())
-  .then(putValues);
+

@@ -12,7 +12,7 @@ const putValues = (pokemon) => {
   pokemon_name.innerHTML = `${pokemon.id} - ${pokemon.name}`;
   pokemon_img.src = `${pokemon.sprites.front_default}`;
   type_list.innerHTML = "";
-  pokemon.types.map((type) => type_list.innerHTML +=`<li class="${type.type.name}">${type.type.name}</li>`);
+  pokemon.types.map((type) => type_list.innerHTML +=`<li onClick="location.href='tabla.html?type=${type.type.name}'" class="${type.type.name}">${type.type.name}</li>`);
 
   pokemon_abilities.innerHTML = "";
   pokemon.abilities.map(ability => pokemon_abilities.innerHTML += `<li>${ability.ability.name}</li>`)

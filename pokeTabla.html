@@ -12,6 +12,7 @@
       <!-- Favicons -->
   <link href="/Assets/Img/tucalogoo.png" rel="icon">
   <link href="/Assets/Img/tucalogoo.png" rel="apple-touch-icon">
+  <link href="/Assets/Img/tucalogoo.png" rel="apple-touch-icon">
 
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
 <!-- CSS only -->
@@ -19,7 +20,7 @@
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </head>
-<body>
+<body class="bodyCatalog">
   <div class="main-container">
 
     <div class="top-bar">
@@ -32,27 +33,14 @@
       <nav class="main-nav">
         <a href="index.html" class="button">Inicio</a>
         <a href="pokedex.html?pokemon=1" class="button">Pokedex</a>
-        <a href="tabla.html" class="button">PokeTabla</a>
+        <a href="tabla.html?type=rock" class="button">PokeTabla</a>
         <a href="pokeTabla.html" class="button">Pokemones</a>
       </nav>
     </div>
 
+    <div class="poke-container" id="poke-container"></div>
+  </div>
 
-
-    <div class="pokemon-container">
-
-    </div>
-    
-    <nav class="pagination " aria-label="...">
-        <ul class="pagination">
-          <li class="page-item" id="previous">
-            <a class="page-link" href="#" tabindex="-1">Anterior</a>
-          </li>
-          <li class="page-item" id="next">
-            <a class="page-link" href="#">Siguiente</a>
-          </li>
-        </ul>
-     </nav>
   </div>
     <script src="/assets/js/pokeTabla.js"></script>
 </body>
