@@ -56,6 +56,8 @@ a {
   text-align: center;
   font-size: 4rem;
   color: var(--black);
+  text-decoration: none;
+  color: #000000;
 }
 
 .top-bar {
@@ -71,7 +73,7 @@ a {
 .main-nav {
   background-color: var(--gray);
   border-radius: 1rem;
-  width: 60rem;
+  width: 72rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -158,7 +160,7 @@ th {
 }
 
 .pokemon-stats {
-  margin: auto;
+  margin: 41px;
 }
 
 .pokemon-name {
@@ -397,6 +399,22 @@ h2{
   cursor: pointer;
 }
 
+
+
+#cursor-image{
+
+width: 40px;
+margin: auto;
+display: flex ;
+justify-content: center;
+}
+
+.afiliated{
+  display: block;
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 
 /* *{

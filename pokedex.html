@@ -43,37 +43,71 @@
           <a href="pokedex.html?pokemon=1" class="button">Pokedex</a>
           <a href="tabla.html?type=rock" class="button">PokeTable</a>
           <a href="pokeTabla.html" class="button">Pokemon</a>
+          <a href="pokeplus.html" class="button">Poke+</a>
         </nav>
       </div>
 
       <div class="search-bar">
         <input type="text" placeholder="Name or number" id="searchQueryInput"/>
-        <input type="submit" value="Search" class="button" onclick="printValue()" />
+        <input type="submit" value="Search" class="button" id="buttonSearch" onclick="printValue()" />
       </div>
 
       <div class="pokedex">
         <div class="pokedex-image">
 
             <img
-              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon.png"
               alt="pokemon"
               id="pokemon-image"
               height="150"
             />
         </div>
         <div class="pokemon-stats">
-          <div class="pokemon-name"></div>
+          <div class="pokemon-name" id="pokemon-name"></div>
           <div class="pokemon-type">
             <ul class="type-list">
             </ul>
           </div>
           <div class="pokemon-measures">
           </div>
+          <br/>
           <div class="pokemon-abilities">
-            <h2>Abilities</h2>
+            <h2 class="fw-bold">Abilities</h2>
             <p class="display-5 fw-bold"></p>
             <ul class="abilities-list">
             </ul>
+          </div>
+          <br/>
+          <br/>
+          <div class="buttons-pokedex">
+            
+            <div class="modal-body row">
+              <div class="col-md-6">
+                <a onclick="previousPokemon()">
+                  <img
+                  src="assets/Img/flechaanterior.png"
+                  alt="previous-button"
+                  id="cursor-image"
+                  class="previous-image"
+                  style="cursor: pointer ;"
+                  />
+                </a>  
+              </div>
+
+              <div class="col-md-6">
+                
+                  <img
+                  onclick="nextPokemon()"
+                  src="assets/Img/flechasiguiente.png"
+                  alt="next-button"
+                  id="cursor-image"
+                  class="next-image"
+                  style="cursor: pointer ;"
+                  />
+                 
+              </div>
+            </div>
+
           </div>
         </div>
 
