@@ -37,21 +37,19 @@
           </div>
         </a>
         <nav class="main-nav">
-          <a href="index.html" class="button">Inicio</a>
+          <a href="index.html" class="button">Home</a>
           <a href="pokedex.html?pokemon=1" class="button">Pokedex</a>
-          <a href="tabla.html?type=rock" class="button">PokeTabla</a>
-          <a href="pokeTabla.html" class="button">Pokemones</a>
-          <a href="pokeplus.html" class="button">Poke+</a>
+          <a href="tabla.html?type=rock" class="button">PokeTable</a>
+          <a href="pokeTabla.html" class="button">Pokemon</a>
         </nav>
       </div>
 
       <div class="search-bar">
-        <input type="text" placeholder="Ingresa un tipo de pokemon" id="searchQueryInput" />
+        <input type="text" placeholder="Pokemon type" id="searchQueryInput" />
         <input
           type="button"
-          value="Buscar"
+          value="Search"
           class="button"
-          id ="buttonSearch"
           onclick="printValue()"
         />
       </div>
@@ -59,11 +57,11 @@
       <div class="table-bg">
         <table class="table">
           <tr class="row-header">
-            <th>Tipo</th>
-            <th>Vulnerable a</th>
-            <th>Super Eficaz Contra</th>
-            <th>Debil a</th>
-            <th>Eficaz Contra</th>
+            <th>Type</th>
+            <th>Vulnerable to</th>
+            <th>Super effective against</th>
+            <th>Weak to</th>
+            <th>Effective against</th>
           </tr>
           <tr class="table-row display-6">
             <th class="table__column--type"></th>
@@ -76,16 +74,5 @@
       </div>
     </div>
     <script src="./table.js"></script>
-
-    <script>
-      var input = document.getElementById("searchQueryInput");
-  input.addEventListener("keypress", function(event) {
-    if (event.key === "Enter") {
-      event.preventDefault();
-      document.getElementById("buttonSearch").click();
-    }
-  });
-  </script>
-
   </body>
 </html>
