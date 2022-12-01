@@ -39,24 +39,25 @@
         <nav class="main-nav">
           <a href="index.html" class="button">Inicio</a>
           <a href="pokedex.html?pokemon=1" class="button">Pokedex</a>
-          <a href="tabla.html" class="button">PokeTabla</a>
+          <a href="tabla.html?type=rock" class="button">PokeTabla</a>
           <a href="pokeTabla.html" class="button">Pokemones</a>
         </nav>
       </div>
 
       <div class="search-bar">
-        <input type="text" placeholder="Search" id="searchQueryInput"/>
-        <input type="button" value="Buscar" class="button" onclick="printValue()" />
+        <input type="text" placeholder="Ingresa el Id o el nombre de un pokemon" id="searchQueryInput"/>
+        <input type="submit" value="Buscar" class="button" onclick="printValue()" />
       </div>
 
       <div class="pokedex">
         <div class="pokedex-image">
-          <img
-            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
-            alt="pokemon"
-            id="pokemon-image"
-            height="150"
-          />
+
+            <img
+              src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png"
+              alt="pokemon"
+              id="pokemon-image"
+              height="150"
+            />
         </div>
         <div class="pokemon-stats">
           <div class="pokemon-name"></div>
@@ -67,6 +68,7 @@
           <div class="pokemon-measures">
           </div>
           <div class="pokemon-abilities">
+            <h2>Abilities</h2>
             <p class="display-5 fw-bold"></p>
             <ul class="abilities-list">
             </ul>

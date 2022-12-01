@@ -1,114 +1,69 @@
-const pokemonContainer = document.querySelector(".pokemon-container");
-const spinner = document.querySelector("#spinner");
-const previous = document.querySelector("#previous");
-const next = document.querySelector("#next");
-const flipcards = document.querySelector(".image-container");
-const URL_Pokedex  = "/pokedex.html?pokemon="
-  
-
-
-let limit = 8;
-let offset = 1;
-
-previous.addEventListener("click", () => {
-  if (offset != 1) {
-    offset -= 9;
-    removeChildNodes(pokemonContainer);
-    fetchPokemons(offset, limit);
-  }
-});
-
-next.addEventListener("click", () => {
-  offset += 9;
-  removeChildNodes(pokemonContainer);
-  fetchPokemons(offset, limit);
-});
-
-function fetchPokemon(id) {
-  fetch(`https://pokeapi.co/api/v2/pokemon/${id}/`)
-    .then((res) => res.json())
-    .then((data) => {
-      createPokemon(data);
-      //spinner.style.display = "none";
-    });
+const poke_container = document.getElementById('poke-container')
+const pokemon_count = 905
+const colors = {
+	normal: '#A8A77A',
+	fire: '#EE8130',
+	water: '#6390F0',
+	electric: '#F7D02C',
+	grass: '#7AC74C',
+	ice: '#96D9D6',
+	fighting: '#C22E28',
+	poison: '#A33EA1',
+	ground: '#E2BF65',
+	flying: '#A98FF3',
+	psychic: '#F95587',
+	bug: '#A6B91A',
+	rock: '#B6A136',
+	ghost: '#735797',
+	dragon: '#6F35FC',
+	dark: '#705746',
+	steel: '#B7B7CE',
+	fairy: '#D685AD',
 }
 
-function fetchPokemons(offset, limit) {
+const main_types = Object.keys(colors)
 
-  for (let i = offset; i <= offset + limit; i++) {
-    fetchPokemon(i);
-  }
+const fetchPokemons = async () => {
+    for(let i = 1; i <= pokemon_count; i++) {
+        await getPokemon(i)
+    }
 }
 
-function createPokemon(pokemon) {
-  const flipCard = document.createElement("div");
-  flipCard.classList.add("flip-card");
-
-  const cardContainer = document.createElement("div");
-  cardContainer.classList.add("card-container");
-
-  flipCard.appendChild(cardContainer);
-
-  const card = document.createElement("div");
-  card.classList.add("pokemon-block");
-
-  const spriteContainer = document.createElement("div");
-  spriteContainer.classList.add("img-container");
-
-  const sprite = document.createElement("img");
-  sprite.src = pokemon.sprites.front_default;
-
-  spriteContainer.appendChild(sprite);
-
-  const number = document.createElement("p");
-  number.classList.add("pokemon-numero");
-  number.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
-
-  const name = document.createElement("p");
-  name.classList.add("name");
-  name.textContent = pokemon.name;
-
-  card.appendChild(spriteContainer);
-  card.appendChild(number);
-  card.appendChild(name);
-
-  cardContainer.appendChild(card);
-  
-  pokemonContainer.appendChild(flipCard);
+const getPokemon = async (id) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const res = await fetch(url)
+    const data = await res.json()
+    createPokemonCard(data)
 }
 
-function progressBars(stats) {
-  const statsContainer = document.createElement("div");
-  statsContainer.classList.add("stats-container");
+const createPokemonCard = (pokemon) => {
+    const pokemonEl = document.createElement('div')
+    pokemonEl.classList.add('pokemon')
+
+    const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
+    const id = pokemon.id.toString().padStart(3, '0')
 
 
+    const poke_types = pokemon.types.map(type => type.type.name)
+    const type = main_types.find(type => poke_types.indexOf(type) > -1)
+    const color = colors[type]
 
-  return statsContainer;
+    pokemonEl.style.backgroundColor = color
+
+    const pokemonInnerHTML = `
+    <div class="img-container" onclick="window.location='pokedex.html?pokemon=${pokemon.id}';">
+        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemon.id}.png" alt="">
+    </div>
+    <div class="info" onclick="window.location='pokedex.html?pokemon=${pokemon.id}';">
+        <span class="number">#${id}</span>
+        <h3 class="name">${name}</h3>
+        <strong class="type">Type: <span>${type}</span> </strong>
+    </div>
+    `
+
+    pokemonEl.innerHTML = pokemonInnerHTML
+
+    poke_container.appendChild(pokemonEl)
 }
 
-function removeChildNodes(parent) {
-  while (parent.firstChild) {
-    parent.removeChild(parent.firstChild);
-  }
-}
-
-fetchPokemons(offset, limit)
-
-// flipCard.addEventListener("click", () => {
-//   console.log("click");
-//   // window.location.replace(URL_Pokedex + number)
-// });
-// flipCard.addEventListener("click", function(){ alert("Hello World!") });
-
-
-// let cards = document.querySelectorAll(".pokemon-container");
-
-// let number = document.querySelectorAll(".pokemon-numero");
-
-// cards.forEach((card,index) => {
-//   console.log(number);
-//   card.addEventListener("click", ()=>{
-//     console.log(`indice ${index}`);
-//   })
-// });
-
+fetchPokemons()

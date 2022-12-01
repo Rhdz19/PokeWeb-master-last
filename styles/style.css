@@ -175,12 +175,26 @@ th {
 	-o-user-select: none;
 	-ms-user-select: none;
 	user-select: none;
+  
+  padding: 0.5rem 2rem;
+  background-color: var(--lightgray);
+  border-radius: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Podkova", serif;
+  font-size: 2rem;
+  color: var(--black);
 }
 
 .type-list{
   display: flex;
   flex-direction: row;
   font-size: 2.5rem;
+
+  
 }
 
 .type-list>li{
@@ -204,72 +218,179 @@ th {
   align-items: center;
   font-weight: bold;
   font-size: 1.5rem;
+
+  font-size: 2rem;
+  color: var(--white);
+  font-weight: bold;
+  background-color: var(--red);
+  text-align: center;
+  padding: 1rem;
+  border: .3rem solid var(--black);
+  -webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  
+  padding: 0.5rem 2rem;
+  background-color: var(--lightgray);
+  border-radius: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Podkova", serif;
+  font-size: 2rem;
+  color: var(--black);
 }
 
 .pokemon-abilities{
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   display: flex;
   justify-content: space-around;
+  text-align: center;
   flex-direction: column;
+
+  font-size: 2rem;
+  color: var(--white);
+  font-weight: bold;
+  background-color: var(--red);
+  text-align: center;
+  padding: 1rem;
+  border: .3rem solid var(--black);
+  -webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  
+  padding: 0.5rem 2rem;
+  background-color: var(--lightgray);
+  border-radius: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Podkova", serif;
+  font-size: 2rem;
+  color: var(--black);
+  
 }
 
 .abilities-list>li{
-  font-size: 1.8rem;
+  
+  font-size: 1.5rem;
   font-weight: bold;
   list-style-type: none;
+
+  font-size: 2rem;
+  color: var(--white);
+  font-weight: bold;
+  background-color: var(--red);
+  text-align: center;
+  padding: 1rem;
+
+  -webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-o-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+  
+  padding: 0.5rem 2rem;
+  background-color: var(--lightgray);
+  border-radius: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-family: "Podkova", serif;
+  font-size: 2rem;
+  color: var(--black);
+  display:inline;
 }
+
 
 .normal{
   background-color: #A8A77A;
+  cursor: pointer;
 }
 .fire{
   background-color: #EE8130;
+  cursor: pointer;
 }
 .water{
   background-color: #6390F0;
+  cursor: pointer;
 }
 .electric{
   background-color: #F7D02C;
+  cursor: pointer;
 }
 .grass{
   background-color: #7AC74C;
+  cursor: pointer;
 }
 .ice{
   background-color: #96D9D6;
+  cursor: pointer;
 }
 .fighting{
   background-color: #C22E28;
+  cursor: pointer;
 }
 .poison{
   background-color: #A33EA1;
+  cursor: pointer;
 }
 .ground{
   background-color: #E2BF65;
+  cursor: pointer;
 }
 .flying{
   background-color: #A98FF3;
+  cursor: pointer;
 }
 .psychic{
   background-color: #F95587;
+  cursor: pointer;
 }
 .bug{
   background-color: #A6B91A;
+  cursor: pointer;
 }
 .rock{
   background-color: #B6A136;
+  cursor: pointer;
 }
 .ghost{
   background-color: #735797;
+  cursor: pointer;
 }
 .dragon{
   background-color: #6F35FC;
+  cursor: pointer;
 }
 .dark{
   background-color: #705746;
+  cursor: pointer;
 }
 .steel{
   background-color: #B7B7CE;
+  cursor: pointer;
 }
 .fairy{
   background-color: #D685AD;
+  cursor: pointer;
 }
+
+
+
+/* *{
+  border: 1px solid black;
+} */
