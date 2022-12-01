@@ -93,7 +93,7 @@ document.addEventListener('DOMContentLoaded', () => {
    */
   var swiper = new Swiper(".sliderFeaturedPosts", {
     spaceBetween: 0,
-    speed: 500,
+    speed: 2000,
     centeredSlides: true,
     loop: true,
     slideToClickedSlide: true,
