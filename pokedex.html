@@ -24,6 +24,8 @@
       crossorigin="anonymous"
     />
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
     <!-- Styles -->
     <link rel="stylesheet" href="styles/style.css" />
   </head>
@@ -41,12 +43,13 @@
           <a href="pokedex.html?pokemon=1" class="button">Pokedex</a>
           <a href="tabla.html?type=rock" class="button">PokeTabla</a>
           <a href="pokeTabla.html" class="button">Pokemones</a>
+          <a href="pokeplus.html" class="button">Poke+</a>
         </nav>
       </div>
 
       <div class="search-bar">
         <input type="text" placeholder="Ingresa el Id o el nombre de un pokemon" id="searchQueryInput"/>
-        <input type="submit" value="Buscar" class="button" onclick="printValue()" />
+        <input type="submit" value="Buscar" class="button" id="buttonSearch" onclick="printValue()" />
       </div>
 
       <div class="pokedex">
@@ -67,9 +70,9 @@
           </div>
           <div class="pokemon-measures">
           </div>
-          <div class="pokemon-abilities">
-            <h2>Abilities</h2>
-            <p class="display-5 fw-bold"></p>
+          <div class="pokemon-abilities ">
+            <h2 class="fw-bold">Abilities</h2>
+            
             <ul class="abilities-list">
             </ul>
           </div>
@@ -78,5 +81,18 @@
       </div>
     </div>
     <script src="main.js"></script>
+
+
+
+    <script>
+          var input = document.getElementById("searchQueryInput");
+      input.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          document.getElementById("buttonSearch").click();
+        }
+      });
+      </script>
+
   </body>
 </html>

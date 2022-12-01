@@ -1223,7 +1223,7 @@ body {
 }
 
 .footer .footer-content {
-  padding: 60px 0;
+  padding: 0px 0;
 }
 
 .footer a.footer-link-more {
@@ -1287,6 +1287,7 @@ body {
 }
 
 .footer .footer-legal {
+  font-size: small;
   background: var(--color-black);
   padding: 40px 0;
 }
@@ -1318,3 +1319,17 @@ body {
 .footer .credits a {
   color: var(--color-white);
 }
+
+.main-container {
+  max-width: 120rem;
+  margin: 2rem auto;
+  background-color: var(--lightgray);
+  padding: 1.5rem;
+  border-radius: 2.7rem;
+}
+
+
+/* 
+*{
+  border: 1px solid black;
+} */
