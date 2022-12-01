@@ -1,7 +1,5 @@
 const API_URL = "https://pokeapi.co/api/v2";
 
-
-
 const searchQuery = document.querySelector("#searchQueryInput");
 const pokemon_name = document.querySelector(".pokemon-name");
 const pokemon_img = document.querySelector("#pokemon-image");
