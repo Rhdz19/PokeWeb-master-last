@@ -9,13 +9,13 @@ const pokemon_abilities = document.querySelector(".abilities-list")
 
 
 const putValues = (pokemon) => {
-  pokemon_name.innerHTML = `${pokemon.id} - ${pokemon.name}`;
+  pokemon_name.innerHTML = `${pokemon.id} - ${pokemon.name[0].toUpperCase()+ pokemon.name.slice(1)}`;
   pokemon_img.src = `${pokemon.sprites.front_default}`;
   type_list.innerHTML = "";
-  pokemon.types.map((type) => type_list.innerHTML +=`<li onClick="location.href='tabla.html?type=${type.type.name}'" class="${type.type.name}">${type.type.name}</li>`);
+  pokemon.types.map((type) => type_list.innerHTML +=`<li onClick="location.href='tabla.html?type=${type.type.name}'" class="${type.type.name}">${type.type.name[0].toUpperCase()+type.type.name.slice(1)}</li>`);
 
   pokemon_abilities.innerHTML = "";
-  pokemon.abilities.map(ability => pokemon_abilities.innerHTML += `<li>${ability.ability.name}</li>`)
+  pokemon.abilities.map(ability => pokemon_abilities.innerHTML += `<li>${ability.ability.name[0].toUpperCase() + ability.ability.name.slice(1)}</li>`)
   
   pokemon_measures.innerHTML = `<span>Height - ${
     pokemon.height / 10
@@ -33,8 +33,36 @@ fetch(`${API_URL}/pokemon/${pokemon}`)
 function printValue() {
   let pokemon = searchQuery.value;
   pokemon = pokemon.toLowerCase();
+  
+
   if(pokemon){
     return window.location.replace(`pokedex.html?pokemon=${pokemon}`)
   }
-  return alert("Busqueda Vacia")
+  return alert("Empty search")
+
+  
+}
+
+function nextPokemon(){
+  var node = document.getElementById('pokemon-name'),
+  textContent = node.textContent.slice(0,2);
+
+  textContent.valueOf();
+  const next = 1;
+  const nextPok = Number(textContent) + Number(next);
+  
+  return location.href=`pokedex.html?pokemon=${nextPok}`;
+  return window.location.href(`pokedex.html?pokemon=${nextPok}`);
+}
+
+function previousPokemon(){
+  var node = document.getElementById('pokemon-name'),
+  textContent = node.textContent.slice(0,2);
+
+  textContent.valueOf();
+  const next = 1;
+  const nextPok = Number(textContent) - Number(next);
+  
+  return location.href=`pokedex.html?pokemon=${nextPok}`;
+  return window.location.href(`pokedex.html?pokemon=${nextPok}`);
 }

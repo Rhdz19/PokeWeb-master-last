@@ -8,33 +8,26 @@ const dto = document.querySelector(".table__damage--to");
 const hfrom = document.querySelector(".table__half--from");
 const hto = document.querySelector(".table__half--to");
 
+// const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1)
+
+
 const putValues = data => {
     console.log(data);
     const damages = data.damage_relations;
 
-    type.innerText = `${data.name}`;
+    type.innerText = `${data.name[0].toUpperCase() + data.name.slice(1)}`;
     dfrom.innerHTML = "";
-    damages.double_damage_from.map(type => dfrom.innerHTML += `<li>${type.name}</li>`)
+    damages.double_damage_from.map(type => dfrom.innerHTML += `<li>${type.name[0].toUpperCase() + type.name.slice(1)}</li>`)
     dto.innerHTML = "";
-    damages.double_damage_to.map(type => dto.innerHTML += `<li>${type.name}</li>`)
+    damages.double_damage_to.map(type => dto.innerHTML += `<li>${type.name[0].toUpperCase() + type.name.slice(1)}</li>`)
     hfrom.innerHTML = "";
-    damages.half_damage_from.map(type=> hfrom.innerHTML += `<li>${type.name}</li>`);
+    damages.half_damage_from.map(type=> hfrom.innerHTML += `<li>${type.name[0].toUpperCase() + type.name.slice(1)}</li>`);
     hto.innerHTML = "";
-    damages.half_damage_to.map(type=> hto.innerHTML += `<li>${type.name}</li>`);
+    damages.half_damage_to.map(type=> hto.innerHTML += `<li>${type.name[0].toUpperCase() + type.name.slice(1)}</li>`);
   };
 
 
-// function printValue() {
-//   let type = searchQuery.value;
-//   type = type.toLowerCase();
-  
-//   if(type){
-//     return fetch(`${API_URL}/type/${type}`)
-//       .then((response) => response.json())
-//       .then(putValues);
-//   }
-//   return alert("No se ingreso nada");
-// }
+
 
 let queryString = window.location.search;
 let urlParams = new URLSearchParams(queryString);
@@ -51,7 +44,7 @@ function printValue() {
   if(type){
     return window.location.replace(`tabla.html?type=${type}`)
   }
-  return alert("Busqueda Vacia")
+  return alert("Empty search")
 }
 
 
