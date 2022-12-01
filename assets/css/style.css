@@ -165,7 +165,15 @@ th {
   width: 70rem;
 }
 
+/* .pokemon-image-background{
+  background-image: url("../Img/fondopokedex.jpg");
+  position: relative;
+  top: 40%;
+  left: 22%;
+} */
+
 #pokemon-image {
+  
   position: relative;
   top: 40%;
   left: 22%;
@@ -273,6 +281,10 @@ li{
 
 
 
+.afiliated-li{
+  display: inline;
+}
+
 
 
 @keyframes bounce {
@@ -291,8 +303,8 @@ li{
   }
 }
 
-/* 
-*{
+
+/* *{
   border: 1px solid black;
-} */
+}  */
 

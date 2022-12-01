@@ -316,10 +316,6 @@ th {
 }
 
 
-/* *{
-  border: 1px solid black;
-} */
-
 .normal{
   background-color: #A8A77A;
   cursor: pointer;
@@ -392,3 +388,9 @@ th {
   background-color: #D685AD;
   cursor: pointer;
 }
+
+
+
+/* *{
+  border: 1px solid black;
+} */
